@@ -25,13 +25,12 @@ function Forecast(props) {
                     <div className="location flex justify-between p-3 font-serif">
                         <h1 className='text-4xl'>Todays's Weather Forecast</h1>
                     </div>
-
                     <div className="line bg-black h-1"></div>
                     {/* {hourlyData!=null?hourlyData.map((element)=>{
                       return <Hourlyforecast  hourlyData={element}/>
                     }):"data is being fetched"} */}
 
-                    <div className="displayforecast grid grid-cols-4 gap-3">
+                    <div className="displayforecast grid grid-cols-2 md:grid-cols-3">
 
                     {hourlyData!=null?hourlyData.map((element)=>{
                       return  <Lund hourlyData={element} key={element.DateTime}/>
