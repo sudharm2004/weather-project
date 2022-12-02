@@ -10,16 +10,24 @@ function App() {
   const [location, setlocation] = useState(null)
   useEffect(() => {
     const userLocation=navigator.geolocation;
+
     userLocation.getCurrentPosition((data)=>{
+
       setcoords({latitude:data.coords.latitude,longitude:data.coords.longitude})
-      console.log('latitude',data.coords.latitude)
-      console.log('longitude',data.coords.longitude)
+
     })
-    getLocationKey();
+
   }, [])
 
+  useEffect(() => {
+    
+    getLocationKey();
+
+  }, [coords])
+  
+
   const getLocationKey = async () => {
-    let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+    let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
     let data = await response.json();
     setlocation(data)
     console.log('setting location>>', location)
@@ -31,11 +39,13 @@ function App() {
       <Navbar />
 
       {location&&
-        <div className="main flex flex-col justify-between items-center md:flex-row" >
+        <div className="main flex flex-col justify-around items-center md:flex-row m-t-2 " >
 
         <Currentweather location={location[0].Key} area={location[0].LocalizedName} administrativeArea={location[0].AdministrativeArea.LocalizedName} /> 
 
         <Forecast location={location[0].Key}/>
+
+        
       </div>
       }
     </div>
