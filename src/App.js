@@ -21,13 +21,19 @@ function App() {
 
   useEffect(() => {
     
-    getLocationKey();
+    const currentlocation=async ()=>{
+      let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
+      let data = await response.json();
+      setlocation(data)
+      console.log('setting location>>', location)
+    }
+    currentlocation();
 
   }, [coords])
   
 
-  const getLocationKey = async () => {
-    let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
+  const getLocationKey = async (location) => {
+    let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${location}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
     let data = await response.json();
     setlocation(data)
     console.log('setting location>>', location)
@@ -38,15 +44,17 @@ function App() {
 
       <Navbar />
 
-      {location&&
+      {location!=null?
         <div className="main flex flex-col justify-around items-center md:flex-row m-t-2 " >
 
-        <Currentweather location={location[0].Key} area={location[0].LocalizedName} administrativeArea={location[0].AdministrativeArea.LocalizedName} /> 
+        <Currentweather location={location[0].Key} area={location[0].LocalizedName} administrativeArea={location[0].AdministrativeArea.LocalizedName} getLocationKey={getLocationKey}/> 
 
         <Forecast location={location[0].Key}/>
 
         
       </div>
+      :
+      <h1 className='h-full'>Fetching The Data.......</h1>
       }
     </div>
   );
