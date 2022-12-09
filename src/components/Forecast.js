@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Dailydata from './Dailydata'
-import Lund from './Lund'
+import Hourlydata from './Hourlydata'
 
 function Forecast(props) {
 
@@ -20,13 +19,13 @@ function Forecast(props) {
   }, [props.location])
 
   const hourlyForecastDetails = async () => {
-    let response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
     let data = await response.json();
     sethourlyData(data);
   }
 
   const dailyForecastDetails = async () => {
-    let response = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
     let data = await response.json();
     setdailyData(data.DailyForecasts);
   }
@@ -47,7 +46,7 @@ function Forecast(props) {
         <div className="displayhourlyforecast grid grid-cols-2 md:grid-cols-3">
 
           {hourlyData != null ? hourlyData.map((element) => {
-            return <Lund hourlyData={element} key={element.DateTime} />
+            return <Hourlydata hourlyData={element} key={element.DateTime} />
           }) : "data is being fetched"}
         </div>
 

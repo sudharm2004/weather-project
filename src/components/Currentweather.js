@@ -69,11 +69,9 @@ function Currentweather(props) {
     const [wIcon, setwIcon] = useState(null)
 
     const getCurrentWeatherConditions = async () => {
-        let response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
         let data = await response.json();
-        setweather(data,(data)=>{
-            console.log(data)
-        });
+        setweather(data);
 
     }
     return (

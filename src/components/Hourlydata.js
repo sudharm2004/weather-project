@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Hourlydata() {
+function Hourlydata(props) {
     function temperatureConversion(temperature,unit){
         if(unit==='F')
         return ((temperature-32)*(5/9)).toFixed(2)

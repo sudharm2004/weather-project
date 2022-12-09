@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Currentweather from './components/Currentweather';
 import { useState, useEffect } from 'react';
 import Forecast from './components/Forecast';
+import Intialerror from './components/Intialerror';
 
 function App() {
   const [coords, setcoords] = useState(null)
@@ -22,7 +23,7 @@ function App() {
   useEffect(() => {
     
     const currentlocation=async ()=>{
-      let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
+      let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
       let data = await response.json();
       setlocation(data)
       console.log('setting location>>', location)
@@ -33,7 +34,7 @@ function App() {
   
 
   const getLocationKey = async (location) => {
-    let response = await fetch(`http://dataservice.accuweather.com/locations/v1/search?q=${location}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
+    let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${location}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
     let data = await response.json();
     setlocation(data)
     console.log('setting location>>', location)
@@ -54,7 +55,7 @@ function App() {
         
       </div>
       :
-      <h1 className='h-full'>Fetching The Data.......</h1>
+      <Intialerror/>
       }
     </div>
   );
