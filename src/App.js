@@ -21,23 +21,32 @@ function App() {
   }, [])
 
   useEffect(() => {
-    
-    const currentlocation=async ()=>{
-      let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
-      let data = await response.json();
-      setlocation(data)
-      console.log('setting location>>', location)
+    try {
+      
+      const currentlocation=async ()=>{
+        let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
+        let data = await response.json();
+        setlocation(data)
+        console.log('setting location>>', location)
+      }
+      currentlocation();
+    } catch (error) {
+      alert('Sorry!!we are unable to find the given location')
     }
-    currentlocation();
 
   }, [coords])
   
 
   const getLocationKey = async (location) => {
-    let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${location}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
-    let data = await response.json();
-    setlocation(data)
-    console.log('setting location>>', location)
+    try {
+      
+      let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${location}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
+      let data = await response.json();
+      setlocation(data)
+      console.log('setting location>>', location)
+    } catch (error) {
+      alert('we were not able to find your current location')
+    }
   }
 
   return (
