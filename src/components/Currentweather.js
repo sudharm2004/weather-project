@@ -54,6 +54,15 @@ function Currentweather(props) {
         return todayDate + ', ' + day;
     }
 
+     const [weather, setweather] = useState(null)
+
+    const getCurrentWeatherConditions = async () => {
+        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+        let data = await response.json();
+        setweather(data);
+
+    }
+    
     useEffect(() => {
         getCurrentWeatherConditions();
         // eslint-disable-line react-hooks/exhaustive-deps
@@ -66,14 +75,7 @@ function Currentweather(props) {
     }, [props.location])
     
 
-    const [weather, setweather] = useState(null)
-
-    const getCurrentWeatherConditions = async () => {
-        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
-        let data = await response.json();
-        setweather(data);
-
-    }
+   
     return (
         weather && <div>
             <div className="input flex items-center">
