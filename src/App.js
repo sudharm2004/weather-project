@@ -26,7 +26,6 @@ function App() {
         let response = await fetch(`https://dataservice.accuweather.com/locations/v1/search?q=${coords.latitude},${coords.longitude}&apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`);
         let data = await response.json();
         setlocation(data)
-        console.log('setting location>>', location)
       }
       currentlocation();
     } catch (error) {
@@ -56,7 +55,8 @@ function App() {
       {(location!==null&& location.length!==0)?
         <div className="main flex flex-col justify-around items-center md:flex-row m-t-2 " >
 
-        <Currentweather location={location[0].Key} area={location[0].LocalizedName} administrativeArea={location[0].AdministrativeArea.LocalizedName} getLocationKey={getLocationKey}/> 
+        <Currentweather location={location[0].Key} area={location[0].LocalizedName} administrativeArea={location[0].AdministrativeArea.LocalizedName} 
+          ={getLocationKey}/> 
 
         <Forecast location={location[0].Key}/>
 
