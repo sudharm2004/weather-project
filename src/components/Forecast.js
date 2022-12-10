@@ -7,11 +7,7 @@ function Forecast(props) {
   const [hourlyData, sethourlyData] = useState(null)
  
 
-  const hourlyForecastDetails = async () => {
-    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
-    let data = await response.json();
-    sethourlyData(data);
-  }
+  
 
   useEffect(() => {
     const hourlyForecastDetails = async () => {
