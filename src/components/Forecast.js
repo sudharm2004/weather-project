@@ -10,13 +10,13 @@ function Forecast(props) {
 
   useEffect(() => {
     hourlyForecastDetails();
-    {*/dailyForecastDetails();*/}
+    {/*dailyForecastDetails();*/}
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     hourlyForecastDetails();
-    {*/dailyForecastDetails();*/}
+    {/*dailyForecastDetails();*/}
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [props.location])
 
