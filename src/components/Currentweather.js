@@ -59,7 +59,7 @@ function Currentweather(props) {
     
     useEffect(() => {
         const getCurrentWeatherConditions = async () => {
-        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
         let data = await response.json();
         setweather(data);
 
@@ -70,7 +70,7 @@ function Currentweather(props) {
 
     useEffect(() => {
       const getCurrentWeatherConditions = async () => {
-        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
         let data = await response.json();
         setweather(data);
 
