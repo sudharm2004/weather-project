@@ -56,12 +56,13 @@ function Currentweather(props) {
 
     useEffect(() => {
         getCurrentWeatherConditions();
+        // eslint-disable-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
       
         getCurrentWeatherConditions();
-      
+      // eslint-disable-line react-hooks/exhaustive-deps
     }, [props.location])
     
 
