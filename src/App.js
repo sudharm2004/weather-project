@@ -32,7 +32,7 @@ function App() {
     } catch (error) {
       alert('Sorry!!we are unable to find the given location')
     }
-
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [coords])
   
 
@@ -53,7 +53,7 @@ function App() {
 
       <Navbar />
 
-      {(location!=null&& location.length!=0)?
+      {(location!==null&& location.length!==0)?
         <div className="main flex flex-col justify-around items-center md:flex-row m-t-2 " >
 
         <Currentweather location={location[0].Key} area={location[0].LocalizedName} administrativeArea={location[0].AdministrativeArea.LocalizedName} getLocationKey={getLocationKey}/> 
