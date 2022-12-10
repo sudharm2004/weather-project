@@ -10,13 +10,13 @@ function Forecast(props) {
 
   useEffect(() => {
     hourlyForecastDetails();
-    dailyForecastDetails();
+    {*/dailyForecastDetails();*/}
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     hourlyForecastDetails();
-    dailyForecastDetails();
+    {*/dailyForecastDetails();*/}
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [props.location])
 
@@ -26,11 +26,11 @@ function Forecast(props) {
     sethourlyData(data);
   }
 
-  const dailyForecastDetails = async () => {
+  {/*const dailyForecastDetails = async () => {
     let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
     let data = await response.json();
     setdailyData(data.DailyForecasts);
-  }
+  }*/}
 
   return (
     <div>
