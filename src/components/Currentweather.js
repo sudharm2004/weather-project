@@ -66,7 +66,6 @@ function Currentweather(props) {
     
 
     const [weather, setweather] = useState(null)
-    const [wIcon, setwIcon] = useState(null)
 
     const getCurrentWeatherConditions = async () => {
         let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
@@ -88,7 +87,7 @@ function Currentweather(props) {
             <div className="weather-info bg-white rounded-md m-2 shadow-xl">
 
                 <div className="location flex justify-between p-3 font-serif">
-                    <span>{props.area},{props.administrativeArea}</span>
+                    <span className='mr-5'>{props.area},{props.administrativeArea}</span>
                     <span>{dayanddate()}</span>
                 </div>
 
