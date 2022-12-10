@@ -20,38 +20,7 @@ function Hourlydata(props) {
         return strTime;
       }
 
-      function dayanddate(date){
-        let currentDate=new Date(date);
-
-        let day=currentDate.getDay();
-        let todayDate=currentDate.getDate();
-        switch (day) {
-            case 0:
-                day='Sunday'
-                break;
-            case 1:
-                day='Monday'
-                break
-            case 2:
-                day='Tuesday'
-                break;
-            case 3:
-                day='Wednesday'
-                break;
-            case 4:
-                day='Thursday'
-                break;
-            case 5:
-                day='Friday'
-                break;
-            case 6:
-                day='Saturday'
-                break;
-            default:
-                break;
-        }
-        return todayDate+', '+day;
-      }
+     
 
   return (
     <div className='bg-black text-white m-2 rounded p-3'>
