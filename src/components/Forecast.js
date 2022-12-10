@@ -5,17 +5,19 @@ import Hourlydata from './Hourlydata'
 function Forecast(props) {
 
   const [hourlyData, sethourlyData] = useState(null)
-  const [dailyData, setdailyData] = useState(null)
+ 
 
 
   useEffect(() => {
     hourlyForecastDetails();
     dailyForecastDetails();
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     hourlyForecastDetails();
     dailyForecastDetails();
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [props.location])
 
   const hourlyForecastDetails = async () => {
