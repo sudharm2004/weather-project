@@ -11,7 +11,7 @@ function Forecast(props) {
 
   useEffect(() => {
     const hourlyForecastDetails = async () => {
-    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
     let data = await response.json();
     sethourlyData(data);
   }
@@ -21,7 +21,7 @@ function Forecast(props) {
 
   useEffect(() => {
     const hourlyForecastDetails = async () => {
-    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+    let response = await fetch(`https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
     let data = await response.json();
     sethourlyData(data);
   }
