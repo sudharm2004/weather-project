@@ -1,6 +1,7 @@
 import React, { useState, useEffect ,useRef } from 'react'
 
 function Currentweather(props) {
+    const {location}=props; 
     const searchInput = useRef(null)
     function changeLocation() {
         let location=searchInput.current.value;
@@ -76,7 +77,7 @@ function Currentweather(props) {
     }
         getCurrentWeatherConditions();
       // eslint-disable-line react-hooks/exhaustive-deps
-    }, [props.location])
+    }, [location])
     
 
    
