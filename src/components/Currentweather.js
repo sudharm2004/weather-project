@@ -64,12 +64,23 @@ function Currentweather(props) {
     }
     
     useEffect(() => {
+        const getCurrentWeatherConditions = async () => {
+        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+        let data = await response.json();
+        setweather(data);
+
+    }
         getCurrentWeatherConditions();
         // eslint-disable-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
-      
+      const getCurrentWeatherConditions = async () => {
+        let response = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.location}?apikey=D4k7HzArNVZLyjZkYkprRzXGqizJo5cG`)
+        let data = await response.json();
+        setweather(data);
+
+    }
         getCurrentWeatherConditions();
       // eslint-disable-line react-hooks/exhaustive-deps
     }, [props.location])
