@@ -16,7 +16,7 @@ function Forecast(props) {
     sethourlyData(data);
   }
     hourlyForecastDetails();
-    // eslint-disable-line react-hooks/exhaustive-deps
+     // eslint-disable-next-line 
   }, [])
 
   useEffect(() => {
