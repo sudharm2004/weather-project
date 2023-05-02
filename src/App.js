@@ -64,6 +64,12 @@ function App() {
     );
   }
 
+  if (
+    location?.message === "The allowed number of requests has been exceeded."
+  ) {
+    return <Intialerror />;
+  }
+
   return (
     <div className="bg-[url('https://tse3.mm.bing.net/th?id=OIP._PrRfu0udjUb87pWUQS0IgHaEK&pid=Api&P=0')] bg-no-repeat bg-cover bg-center">
       <Navbar />
