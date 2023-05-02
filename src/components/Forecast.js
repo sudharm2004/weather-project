@@ -31,6 +31,10 @@ function Forecast(props) {
     // eslint-disable-line react-hooks/exhaustive-deps
   }, [location]);
 
+  if (hourlyData == null) {
+    return <Forecastshimmer />;
+  }
+
   return (
     <div className="weather-info bg-white rounded-md m-2 shadow-xl">
       <div className="location flex justify-between p-3 font-serif">
@@ -39,13 +43,9 @@ function Forecast(props) {
       <div className="line bg-black h-1"></div>
 
       <div className="displayhourlyforecast grid grid-cols-2 md:grid-cols-3">
-        {hourlyData != null ? (
-          hourlyData.map((element) => {
-            return <Hourlydata hourlyData={element} key={element.DateTime} />;
-          })
-        ) : (
-          <Forecastshimmer />
-        )}
+        {hourlyData.map((element) => {
+          return <Hourlydata hourlyData={element} key={element.DateTime} />;
+        })}
       </div>
     </div>
   );
